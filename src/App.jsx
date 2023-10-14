@@ -1,4 +1,73 @@
-import { useState } from 'react'
+
+import './App.css'
+
+function App() {
+  return (
+    <div className='App'>
+      <div className='container'>
+        <div className='generator'>
+          <h2 className='generator_header'>
+            Password Generator
+          </h2>
+          <div className='generator_password'>
+            <h3>Password</h3>
+            <button className='copy_button'>
+              <i className='far fa-file'></i>
+            </button>
+          </div>
+
+
+          <div className='form-group'>  
+            <input
+              type='checkbox'
+              id='uppercase-letters'
+              name='uppercase-letters'
+            /> 
+            <label htmlFor='uppercase-letters'> Include Uppercase Letters</label>
+          </div>
+
+          <div className='form-group'>  
+            <input
+              type='checkbox'
+              id='lowercase-letters'
+              name='lowercase-letters'
+            /> 
+            <label htmlFor='lowercase-letters'> Include Lowercase Letters</label>
+          </div>
+
+          <div className='form-group'>  
+            <input
+              type='checkbox'
+              id='numbers'
+              name='numbers'
+            /> 
+            <label htmlFor='numbers'> Include Numbers</label>
+          </div>
+
+          <div className='form-group'>  
+            <input
+              type='checkbox'
+              id='symbols'
+              name='symbols'
+            /> 
+            <label htmlFor='symbols'> Include Symbols</label>
+          </div>
+
+
+          <div className='form-group'>
+            <label htmlFor='password-strength'>STRENGTH</label>
+          </div>
+
+        </div>
+      </div>
+    </div>    
+  )
+}
+
+export default App
+
+
+/*import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -32,4 +101,4 @@ function App() {
   )
 }
 
-export default App
+export default App*/

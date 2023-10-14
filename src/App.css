@@ -1,4 +1,75 @@
+.App{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+.container { /*PROPRIEDADES PARA TODO CONTEUDO*/
+  width: 350px;
+  margin: 0 auto;
+  padding-top: 200px;
+}
+
+.generator { /* BLOCO*/
+  background: #6764772e; 
+  border-radius: 3px;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+  padding: 20px;
+  word-spacing: 5px;
+}
+
+.generator_header{ /*TITULO*/
+  text-align: center;
+  color:rgba(245, 245, 245, 0.376);
+  margin-bottom: 20px;
+  font-size: medium;
+}
+
+.generator_password{ /*ONDE SENHA VAI SER GERADA*/
+  position: relative;
+  background: #6764772e; 
+  border-radius: 3px;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+  padding: 15px 10px;
+  padding-bottom: 5px;
+  box-sizing: border-box;
+  justify-content: space-around;
+  color:rgba(245, 245, 245, 0.256);
+  margin-bottom: 15px;
+}
+
+.copy_button { /*BOTAO DE COPIAR A SENHA*/
+  position: absolute;
+  background-color: #67647700;
+  color:  #84d4a1;
+  border: none;
+  cursor: pointer;
+  top: 3px;
+  right: 3px;
+} 
+
+.form-group{ /*ÁREA DAS OPÇÕES DE ESCOLHA */
+  color: rgba(245, 245, 245, 0.644);
+  margin-bottom: 10px;
+}
+
+.strength{ /*ÁREA DA "STRENGHT" */
+  background-color:  #111019e6;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: 50px;
+  color:rgba(245, 245, 245, 0.256);
+  padding: 10px;
+  padding-left: 20px;
+  font-weight:600;
+}
+
+.generator_btn{ /*BOTAO DE GERAR A SENHA*/
+  background-color:  #84d4a1;
+  color: #0b0b0bc9;
+  border: none;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
 
 /*#root {
   max-width: 1280px;

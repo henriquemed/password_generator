@@ -5,18 +5,22 @@ function App() {
   return (
     <div className='App'>
       <div className='container'>
-        <div className='generator'>
-          <h2 className='generator_header'>
+       
+        {/*TITULO*/}
+        <h3 className='generator_header'>
             Password Generator
-          </h2>
-          <div className='generator_password'>
-            <h3>Password</h3>
-            <button className='copy_button'>
-              <i className='far fa-file'></i>
-            </button>
-          </div>
-
-
+        </h3> 
+        {/*SENHA QUE VAI SER GERADA*/}
+        <div className='generator_password'>
+          <h3>Password Generator</h3>
+          {/*BOTAO PARA COPIAR A SENHA GERADA*/}
+          <button className='copy_button'>
+            <i className='far fa-copy'></i>
+          </button>
+        </div>
+        <div className='generator'>
+         
+          {/*BOTAO PARA ATIVAR LETRAS MAIUSCULAS*/}
           <div className='form-group'>  
             <input
               type='checkbox'
@@ -26,6 +30,7 @@ function App() {
             <label htmlFor='uppercase-letters'> Include Uppercase Letters</label>
           </div>
 
+          {/*BOTAO PARA ATIVAR LETRAS MINUSCULAS*/}
           <div className='form-group'>  
             <input
               type='checkbox'
@@ -35,28 +40,33 @@ function App() {
             <label htmlFor='lowercase-letters'> Include Lowercase Letters</label>
           </div>
 
+          {/*BOTAO PARA INCLUIR NUMEROS*/}
           <div className='form-group'>  
             <input
               type='checkbox'
-              id='numbers'
-              name='numbers'
+              id='include-numbers'
+              name='include-numbers'
             /> 
-            <label htmlFor='numbers'> Include Numbers</label>
+            <label htmlFor='include-numbers'> Include Numbers</label>
           </div>
 
+          {/*BOTAO PARA INCLUIR SIMBOLOS*/}
           <div className='form-group'>  
             <input
               type='checkbox'
-              id='symbols'
-              name='symbols'
+              id='include-symbols'
+              name='include-symbols'
             /> 
-            <label htmlFor='symbols'> Include Symbols</label>
+            <label htmlFor='include-symbols'> Include Symbols</label>
           </div>
 
-
-          <div className='form-group'>
+          {/*DETERMINAR A FORÇA DA SENHA*/}
+          <div className='strength'>
             <label htmlFor='password-strength'>STRENGTH</label>
           </div>
+
+          {/*BOTAO PARA GERAR NOVA SENHA*/}
+          <button className='generator_btn'> GENERATE {'->'} </button>
 
         </div>
       </div>

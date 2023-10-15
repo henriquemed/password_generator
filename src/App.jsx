@@ -1,5 +1,6 @@
 import React, { useState} from 'react'
 import './App.css'
+import { numbers, upperCaseLetters, lowerCaseLetters, specialCharacters } from './characteres'
 
 function App() {
   const [password, setPassword] = useState('')
@@ -8,6 +9,43 @@ function App() {
   const [includeLowercase, setIncludeLowercase] = useState(false)
   const [includeNumbers, setIncludeNumbers] = useState(false)
   const [includeSymbols, setIncludeSymbols] = useState(false)
+
+  {/*FUNÇÃO PARA GERAR UM SENHA ALEATORIAMENTE*/}
+  const randleGeneratePassword = (e) => {
+    {/*Criar lista dos possiveis carateres para gerar a senha*/}
+    let characterList = ''
+
+    {/*Se includeLowercase for selecionada, inclui lowerCaseLetters do arquivo characteres.js*/}
+    if(includeLowercase){ 
+      characterList = characterList + lowerCaseLetters
+    }
+    {/*Se includeUppercase for selecionada, inclui upperCaseLetters do arquivo characteres.js*/}
+    if(includeUppercase){
+      characterList = characterList + upperCaseLetters
+    }
+    {/*Se includeNumbers for selecionada, inclui number do arquivo characteres.js*/}
+    if(includeNumbers){
+      characterList = characterList + numbers
+    }
+    {/*Se includeSymbolss for selecionada, inclui specialCharacter do arquivo characteres.js*/}
+    if(includeSymbols){
+      characterList = characterList + specialCharacters
+    }
+
+    setPassword(createPassword(characterList))
+  }
+
+  {/*FUNÇÃO PARA CRIAR A SENHA COM BASE NO TAMANHO DECLARADO EM LENGTH*/}
+  const createPassword = (characterList) => {
+    let password = ''
+    const characterListLength = characterList.length
+
+    for(let i =0; i< characterLength; i++){
+      const characterIndex = Math.round(Math.random() * characterListLength)
+      password = password + characterList.charAt(characterIndex) 
+    }
+    return password
+  }
 
   return (
     <div className='App'>
@@ -37,7 +75,7 @@ function App() {
             <input
               type='range' 
               min='0' 
-              max='30' 
+              max='25' 
               step='1'
               value={characterLength}
               onChange={(e) => setCharacterLength(e.target.value)}
@@ -100,7 +138,7 @@ function App() {
           </div>
 
           {/*BOTAO PARA GERAR NOVA SENHA*/}
-          <button className='generator_btn'> GENERATE {'->'} </button>
+          <button onClick={randleGeneratePassword} className='generator_btn'> GENERATE {'->'} </button>
 
         </div>
       </div>
@@ -110,39 +148,3 @@ function App() {
 
 export default App
 
-
-/*import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App*/

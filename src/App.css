@@ -34,6 +34,7 @@
   justify-content: space-around;
   color:rgba(245, 245, 245, 0.256);
   margin-bottom: 15px;
+  height: 70px;
 }
 
 .copy_button { /*BOTAO DE COPIAR A SENHA*/
@@ -57,7 +58,7 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#range-character-lenght{
+#range-character-lenght{ /*RANGE DO LENGHT*/
   width: 300px;
   cursor: pointer;
 }

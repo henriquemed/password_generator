@@ -1,5 +1,12 @@
 # React + Vite
 
+To run it on your machine you need to generate the node_modules folder after cloning the repository.
+Run the following commands (assuming you have npm installed properly):
+- npm install
+- npm run dev
+
+and follow the generated link with 'ctrl + click'
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

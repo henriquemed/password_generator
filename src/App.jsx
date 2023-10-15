@@ -51,25 +51,31 @@ function App() {
 
    {/*FUNÇÃO PARA CHECAR FORÇA DA SENHA*/}
    const checkPasswordStrength = (pwd) => {
-    let strength = 'WEAK';
+    let strength = 'VERY WEAK';
     let bars = [false, false, false, false];
-    
-    if (pwd.length >= 1 && pwd.length < 8) {
-      strength = 'WEAK';
-      bars = [true, false, false, false];
-    } else if (pwd.length >= 8 && pwd.length < 16) {
+  
+    const length = pwd.length;
+    const hasUpperCase = /[A-Z]/.test(pwd);
+    const hasLowerCase = /[a-z]/.test(pwd);
+    const hasNumber = /\d/.test(pwd);
+    const hasSymbol = /\W/.test(pwd);
+  
+    const typesCount = [hasUpperCase, hasLowerCase, hasNumber, hasSymbol].filter(Boolean).length;
+  
+    if (length >= 20 && typesCount === 4) {
+      strength = 'VERY STRONG';
+      bars = [true, true, true, true];
+    } else if (length >= 16 && typesCount >= 3) {
+      strength = 'STRONG';
+      bars = [true, true, true, false];
+    } else if (length >= 8 && typesCount >= 2) {
       strength = 'MEDIUM';
       bars = [true, true, false, false];
-    } else if (pwd.length >= 16 && pwd.length < 18) {
-      strength = 'MEDIUM';
-      bars = [true, true, true, false];
-    } else if (pwd.length >= 18) {
-      if (/[A-Z]/.test(pwd) && /[a-z]/.test(pwd) && /\d/.test(pwd) && /\W/.test(pwd)) {
-        strength = 'STRONG';
-        bars = [true, true, true, true];
-      }
+    } else if (length > 4) {
+      strength = 'WEAK';
+      bars = [true, false, false, false];
     }
-    
+  
     setPasswordStrength(strength);
     setStrengthBars(bars);
   };

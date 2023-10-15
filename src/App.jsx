@@ -10,6 +10,8 @@ function App() {
   const [includeNumbers, setIncludeNumbers] = useState(false)
   const [includeSymbols, setIncludeSymbols] = useState(false)
   const [passwordStrength, setPasswordStrength] = useState('');
+  const [strengthBars, setStrengthBars] = useState([false, false, false, false]);
+
 
 
   {/*FUNÇÃO PARA GERAR UM SENHA ALEATORIAMENTE*/}
@@ -50,19 +52,29 @@ function App() {
    {/*FUNÇÃO PARA CHECAR FORÇA DA SENHA*/}
    const checkPasswordStrength = (pwd) => {
     let strength = 'WEAK';
-  
-    if (pwd.length >= 8) {
-      strength = 'MODERATE';
+    let bars = [false, false, false, false];
+    
+    if (pwd.length >= 1 && pwd.length < 8) {
+      strength = 'WEAK';
+      bars = [true, false, false, false];
+    } else if (pwd.length >= 8 && pwd.length < 16) {
+      strength = 'MEDIUM';
+      bars = [true, true, false, false];
+    } else if (pwd.length >= 16 && pwd.length < 18) {
+      strength = 'MEDIUM';
+      bars = [true, true, true, false];
+    } else if (pwd.length >= 18) {
+      if (/[A-Z]/.test(pwd) && /[a-z]/.test(pwd) && /\d/.test(pwd) && /\W/.test(pwd)) {
+        strength = 'STRONG';
+        bars = [true, true, true, true];
+      }
     }
-  
-    if (pwd.length >= 12 && /[A-Z]/.test(pwd) && /[a-z]/.test(pwd) && /\d/.test(pwd)) {
-      strength = 'STRONG';
-    }
-  
+    
     setPasswordStrength(strength);
+    setStrengthBars(bars);
   };
   
-
+  
   return (
     <div className='App'>
       <div className='container'>
@@ -151,7 +163,14 @@ function App() {
           {/*DETERMINAR A FORÇA DA SENHA*/}
           <div className='strength'>
             <label htmlFor='password-strength'>STRENGTH</label>
-            <p>{passwordStrength}</p>
+            <div className='strength-container'>
+              <p>{passwordStrength}</p>
+              <div className='strength-bars'>
+                {strengthBars.map((isActive, index) => (
+                  <div key={index} className={`strength-bar ${isActive ? 'active' : ''}`}></div>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/*BOTAO PARA GERAR NOVA SENHA*/}

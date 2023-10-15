@@ -34,7 +34,7 @@
   justify-content: space-around;
   color:rgba(245, 245, 245, 0.256);
   margin-bottom: 15px;
-  height: 70px;
+  height: 60px;
 }
 
 .copy_button { /*BOTAO DE COPIAR A SENHA*/
@@ -43,7 +43,7 @@
   color:  #84d4a1;
   border: none;
   cursor: pointer;
-  top: 3px;
+  top: 10px;
   right: 3px;
 } 
 .form-lenght{ /*OPÇÃO DE LENGHT */

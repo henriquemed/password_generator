@@ -9,31 +9,31 @@ function App() {
   const [includeLowercase, setIncludeLowercase] = useState(false)
   const [includeNumbers, setIncludeNumbers] = useState(false)
   const [includeSymbols, setIncludeSymbols] = useState(false)
+  const [passwordStrength, setPasswordStrength] = useState('');
+
 
   {/*FUNÇÃO PARA GERAR UM SENHA ALEATORIAMENTE*/}
   const randleGeneratePassword = (e) => {
-    {/*Criar lista dos possiveis carateres para gerar a senha*/}
-    let characterList = ''
-
-    {/*Se includeLowercase for selecionada, inclui lowerCaseLetters do arquivo characteres.js*/}
-    if(includeLowercase){ 
-      characterList = characterList + lowerCaseLetters
+    let characterList = '';
+  
+    if (includeLowercase) {
+      characterList = characterList + lowerCaseLetters;
     }
-    {/*Se includeUppercase for selecionada, inclui upperCaseLetters do arquivo characteres.js*/}
-    if(includeUppercase){
-      characterList = characterList + upperCaseLetters
+    if (includeUppercase) {
+      characterList = characterList + upperCaseLetters;
     }
-    {/*Se includeNumbers for selecionada, inclui number do arquivo characteres.js*/}
-    if(includeNumbers){
-      characterList = characterList + numbers
+    if (includeNumbers) {
+      characterList = characterList + numbers;
     }
-    {/*Se includeSymbolss for selecionada, inclui specialCharacter do arquivo characteres.js*/}
-    if(includeSymbols){
-      characterList = characterList + specialCharacters
+    if (includeSymbols) {
+      characterList = characterList + specialCharacters;
     }
-
-    setPassword(createPassword(characterList))
-  }
+  
+    const newPassword = createPassword(characterList);
+    setPassword(newPassword);
+    checkPasswordStrength(newPassword);
+  };
+  
 
   {/*FUNÇÃO PARA CRIAR A SENHA COM BASE NO TAMANHO DECLARADO EM LENGTH*/}
   const createPassword = (characterList) => {
@@ -46,6 +46,22 @@ function App() {
     }
     return password
   }
+
+   {/*FUNÇÃO PARA CHECAR FORÇA DA SENHA*/}
+   const checkPasswordStrength = (pwd) => {
+    let strength = 'WEAK';
+  
+    if (pwd.length >= 8) {
+      strength = 'MODERATE';
+    }
+  
+    if (pwd.length >= 12 && /[A-Z]/.test(pwd) && /[a-z]/.test(pwd) && /\d/.test(pwd)) {
+      strength = 'STRONG';
+    }
+  
+    setPasswordStrength(strength);
+  };
+  
 
   return (
     <div className='App'>
@@ -135,6 +151,7 @@ function App() {
           {/*DETERMINAR A FORÇA DA SENHA*/}
           <div className='strength'>
             <label htmlFor='password-strength'>STRENGTH</label>
+            <p>{passwordStrength}</p>
           </div>
 
           {/*BOTAO PARA GERAR NOVA SENHA*/}

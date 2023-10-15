@@ -45,6 +45,22 @@
   top: 3px;
   right: 3px;
 } 
+.form-lenght{ /*OPÇÃO DE LENGHT */
+  display: flex;
+  justify-content: space-between;
+  color: rgba(245, 245, 245, 0.644);
+  margin-bottom: 10px;
+}
+
+#value_lenght{ /*VALOR QUE APARECE DO LENGHT */
+  color:  #84d4a1;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#range-character-lenght{
+  width: 300px;
+  cursor: pointer;
+}
 
 .form-group{ /*ÁREA DAS OPÇÕES DE ESCOLHA */
   color: rgba(245, 245, 245, 0.644);

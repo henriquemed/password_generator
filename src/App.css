@@ -118,6 +118,11 @@
   width: 100%;
   cursor: pointer;
 }
+.generator_btn:hover {
+    color: #84d4a1;
+    background-color: #6764772e; 
+    border: 1px solid #84d4a1;
+  }
 
 /*#root {
   max-width: 1280px;

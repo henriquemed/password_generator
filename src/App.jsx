@@ -174,8 +174,12 @@ function App() {
           </div>
 
           {/*BOTAO PARA GERAR NOVA SENHA*/}
-          <button onClick={randleGeneratePassword} className='generator_btn'> GENERATE {'->'} </button>
-
+          <button   
+            onClick={randleGeneratePassword} 
+            className='generator_btn'
+            > GENERATE → 
+          </button>
+          
         </div>
       </div>
     </div>    

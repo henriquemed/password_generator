@@ -12,7 +12,15 @@ function App() {
   const [passwordStrength, setPasswordStrength] = useState('');
   const [strengthBars, setStrengthBars] = useState([false, false, false, false]);
 
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text)
+  }
 
+  const handleCopyPassword = () => {
+    if (password) {
+      copyToClipboard(password);
+    }
+  }
 
   {/*FUNÇÃO PARA GERAR UM SENHA ALEATORIAMENTE*/}
   const randleGeneratePassword = (e) => {
@@ -92,8 +100,8 @@ function App() {
         {/*SENHA QUE VAI SER GERADA*/}
         <div className='generator_password'>
           <h3>{password}</h3>
-          {/*BOTAO PARA COPIAR A SENHA GERADA*/}
-          <button className='copy_button'>
+          {/* BOTAO PARA COPIAR A SENHA GERADA */}
+          <button className='copy_button' onClick={handleCopyPassword}>
             <i className='far fa-copy'></i>
           </button>
         </div>
@@ -180,8 +188,12 @@ function App() {
           </div>
 
           {/*BOTAO PARA GERAR NOVA SENHA*/}
-          <button onClick={randleGeneratePassword} className='generator_btn'> GENERATE {'->'} </button>
-
+          <button   
+            onClick={randleGeneratePassword} 
+            className='generator_btn'
+            > GENERATE → 
+          </button>
+          
         </div>
       </div>
     </div>    

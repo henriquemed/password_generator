@@ -1,5 +1,10 @@
+@font-face { /*Inserir uma fonte nova*/
+  font-family: SpaceGrotesk ;
+  src: url("Font/SourceCodePro-SemiBold.ttf") format("truetype");
+  font-style: normal;
+}
+
 .App{
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container { /*PROPRIEDADES PARA TODO CONTEUDO*/
@@ -55,7 +60,6 @@
 
 #value_lenght{ /*VALOR QUE APARECE DO LENGHT */
   color:  #84d4a1;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #range-character-lenght{ /*RANGE DO LENGHT*/

@@ -9,8 +9,8 @@
 
 .container { /*PROPRIEDADES PARA TODO CONTEUDO*/
   width: 350px;
-  margin: 0 auto;
-  padding-top: 200px;
+  margin: -0 auto;
+  padding-top: 100px;
 }
 
 .generator { /* BLOCO*/
@@ -51,6 +51,9 @@
   top: 10px;
   right: 3px;
 } 
+.copy_button:hover { /*MUDAR A COR DO BOTAO QUANDO CLICAR*/
+  color: #ffffff;
+}
 .form-lenght{ /*OPÇÃO DE LENGHT */
   display: flex;
   justify-content: space-between;
@@ -65,12 +68,28 @@
 #range-character-lenght{ /*RANGE DO LENGHT*/
   width: 300px;
   cursor: pointer;
+
 }
+
 
 .form-group{ /*ÁREA DAS OPÇÕES DE ESCOLHA */
   color: rgba(245, 245, 245, 0.644);
   margin-bottom: 10px;
 }
+
+/*MUDAR A COR DO CHECKBOX QUANDO CLICAR*/
+input[type="checkbox"],input[type="radio"]{
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+}
+input[type="checkbox"]:checked,input[type="radio"]:checked { 
+  -webkit-appearance:none;
+  content: "✔";
+  background-color: #84d4a1;
+  color:#000;
+}
+
 
 .strength { /*ÁREA DA "STRENGHT" */
   background-color: #111019e6;

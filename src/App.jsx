@@ -134,7 +134,8 @@ function App() {
               type='checkbox'
               id='uppercase-letters'
               name='uppercase-letters'
-            /> 
+            />
+            <span className="checkmark"></span>
             <label htmlFor='uppercase-letters'> Include Uppercase Letters</label>
           </div>
 

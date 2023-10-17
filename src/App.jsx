@@ -22,6 +22,9 @@ function App() {
     }
   }
 
+   {/*FUNÇÃO PARA ALTERA O TEXTO PROVISORIO NA SENHA*/}
+  const passwordBox = document.getElementById("password")
+
   {/*FUNÇÃO PARA GERAR UM SENHA ALEATORIAMENTE*/}
   const randleGeneratePassword = (e) => {
     let characterList = '';
@@ -39,9 +42,12 @@ function App() {
       characterList = characterList + specialCharacters;
     }
   
+    
     const newPassword = createPassword(characterList);
+    passwordBox.value = newPassword;
     setPassword(newPassword);
     checkPasswordStrength(newPassword);
+    
   };
   
 
@@ -69,7 +75,7 @@ function App() {
     const hasSymbol = /\W/.test(pwd);
   
     const typesCount = [hasUpperCase, hasLowerCase, hasNumber, hasSymbol].filter(Boolean).length;
-  
+    
     if (length >= 20 && typesCount === 4) {
       strength = 'VERY STRONG';
       bars = [true, true, true, true];
@@ -87,7 +93,7 @@ function App() {
     setPasswordStrength(strength);
     setStrengthBars(bars);
   };
-  
+
   
   return (
     <div className='App'>
@@ -99,7 +105,9 @@ function App() {
         </h3> 
         {/*SENHA QUE VAI SER GERADA*/}
         <div className='generator_password'>
-          <h3>{password}</h3>
+            <input type='text' id='password' placeholder='P4$5W0rD!'></input>
+            {/*<h3>{password}</h3>*/}
+        
           {/* BOTAO PARA COPIAR A SENHA GERADA */}
           <button className='copy_button' onClick={handleCopyPassword}>
             <i className='far fa-copy'></i>
@@ -189,7 +197,7 @@ function App() {
           </div>
 
           {/*BOTAO PARA GERAR NOVA SENHA*/}
-          <button   
+          <button  
             onClick={randleGeneratePassword} 
             className='generator_btn'
             > GENERATE → 

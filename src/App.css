@@ -41,6 +41,15 @@
   margin-bottom: 15px;
   height: 60px;
 }
+#password{ /*PROPRIEDADES DA SENHA*/
+ border: 0;
+ outline: 0;
+ background: #67647700; 
+ color:rgba(245, 245, 245, 0.329);
+ font-size: x-large;
+ font-weight: 600;
+ padding-left: 10px ;
+}
 
 .copy_button { /*BOTAO DE COPIAR A SENHA*/
   position: absolute;
